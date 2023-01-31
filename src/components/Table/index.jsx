@@ -2,45 +2,26 @@ import './style.css';
 import ButtonIcon from '../Button';
 import TableRow from '../TableRow';
 
+import { ContactController } from '../../controllers/ContactController';
+import { useEffect } from 'react';
+import { useState } from 'react';
+
 const plusClick = () => {
     return alert('Plus')
 }
 
-const updateUser = () => {
-    return alert('Minus')
-}
-
-const deleteUser = () => {
-    return alert('Pencil')
-}
-
 const Table = () => {
-    const arr = [
-        {
-            name: 'Roque',
-            address: 'Rua Grijalva Costa',
-            city: 'Fortaleza',
-            uf: 'CE',
-            phone: '(99) 99999-9999',
-            email: 'roque@gmail.com'
-        },
-        {
-            name: 'herick',
-            address: 'Rua Grijalva Costa',
-            city: 'Fortaleza',
-            uf: 'CE',
-            phone: '(99) 99999-9999',
-            email: 'herick@gmail.com'
-        },
-        {
-            name: 'jackson',
-            address: 'Rua Grijalva Costa',
-            city: 'Fortaleza',
-            uf: 'CE',
-            phone: '(99) 99999-9999',
-            email: 'jackson@gmail.com'
-        }
-    ]
+    const [contacts, setContacts] = useState([]) 
+    const contactsController = new ContactController()
+
+    const loadContacts = async () => {
+        const contacts = await contactsController.getContacts()
+        setContacts(contacts)
+    }
+
+    useEffect(() => {
+        loadContacts()
+    }, [])
 
     return (
         <table className='contacts-table'>
@@ -53,7 +34,7 @@ const Table = () => {
                 <th>Telefone</th>
                 <th>E-mail</th>
             </tr>
-            {arr.map(item => {
+            {contacts.map(item => {
                 return <TableRow {...item} key={item.name} />
             })}
         </table>
