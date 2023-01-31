@@ -1,10 +1,10 @@
-import ButtonIcon from './components/Button';
+import Table from './components/Table';
 
 function App() {
   return (
     <div className="App">
       Something
-      <ButtonIcon typeIcon="arrow-left" />
+      <Table />
     </div>
   );
 }
