@@ -1,10 +1,11 @@
 import Table from './components/Table';
+import { Form } from './components/Form';
 
 function App() {
   return (
     <div className="App">
-      Something
       <Table />
+      <Form />
     </div>
   );
 }

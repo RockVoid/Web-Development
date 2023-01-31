@@ -29,13 +29,13 @@ export class ContactController {
             TECL_UF: uf,
             TECL_TELEFONE: phone   
         }
-        
-        const response = URL_SAIBWEB.post('/cliente', body).then(res => res)
+        const response = await URL_SAIBWEB.post('/cliente', body).then(res => res)
         return response
     }
 
     async deleteContact(id) {
         const response = await URL_SAIBWEB.delete('/cliente/' + id).then(res => res.data)
+        console.log(response)
         return response
     }
 

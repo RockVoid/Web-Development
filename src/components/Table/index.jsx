@@ -14,10 +14,7 @@ const Table = () => {
     const [contacts, setContacts] = useState([]) 
     const contactsController = new ContactController()
 
-    const deleteContact = (id) => {
-        const response = contactsController.deleteContact(id)
-        alert(response)
-    }
+    const deleteContact = contactsController.deleteContact;
 
     const loadContacts = async () => {
         const contacts = await contactsController.getContacts()
