@@ -1,0 +1,10 @@
+#btn-icon {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+#btn-icon:hover { color: #2c2c2c; }
