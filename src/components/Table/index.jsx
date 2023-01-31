@@ -14,13 +14,19 @@ const Table = () => {
     const [contacts, setContacts] = useState([]) 
     const contactsController = new ContactController()
 
+    const deleteContact = (id) => {
+        const response = contactsController.deleteContact(id)
+        alert(response)
+    }
+
     const loadContacts = async () => {
         const contacts = await contactsController.getContacts()
         setContacts(contacts)
     }
-
+    
     useEffect(() => {
         loadContacts()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
@@ -35,7 +41,13 @@ const Table = () => {
                 <th>E-mail</th>
             </tr>
             {contacts.map(item => {
-                return <TableRow {...item} key={item.name} />
+                return( 
+                    <TableRow 
+                        {...item} 
+                        key={item.name} 
+                        deleteContact={(id) => deleteContact(id)} 
+                    />
+                )
             })}
         </table>
     )
