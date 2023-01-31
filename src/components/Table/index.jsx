@@ -5,6 +5,7 @@ import TableRow from '../TableRow';
 import { ContactController } from '../../controllers/ContactController';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Header } from '../Header';
 
 const plusClick = () => {
     return alert('Plus')
@@ -27,26 +28,29 @@ const Table = () => {
     }, [])
 
     return (
-        <table className='contacts-table'>
-            <tr className='contacts-table-header'>
-                <th><ButtonIcon typeIcon="plus" onClick={plusClick}/></th>
-                <th>Nome</th>
-                <th>Endereço</th>
-                <th>Cidade</th>
-                <th>UF</th>
-                <th>Telefone</th>
-                <th>E-mail</th>
-            </tr>
-            {contacts.map(item => {
-                return( 
-                    <TableRow 
-                        {...item} 
-                        key={item.name} 
-                        deleteContact={(id) => deleteContact(id)} 
-                    />
-                )
-            })}
-        </table>
+        <>
+            <Header text="Teste ReactJS - SaibWeb" route="/register" />
+            <table className='contacts-table'>
+                <tr className='contacts-table-header'>
+                    <th><ButtonIcon typeIcon="plus" onClick={plusClick}/></th>
+                    <th>Nome</th>
+                    <th>Endereço</th>
+                    <th>Cidade</th>
+                    <th>UF</th>
+                    <th>Telefone</th>
+                    <th>E-mail</th>
+                </tr>
+                {contacts.map(item => {
+                    return( 
+                        <TableRow 
+                            {...item} 
+                            key={item.name} 
+                            deleteContact={(id) => deleteContact(id)} 
+                        />
+                    )
+                })}
+            </table>
+        </>
     )
 }
 
