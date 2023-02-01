@@ -3,26 +3,18 @@ import { useNavigate } from "react-router-dom";
 import ButtonIcon from "../Button"
 import { Modal } from "../Modal";
 
-const TableRow = (
-    { 
-        id, 
-        name, 
-        address, 
-        city, 
-        uf, 
-        phone, 
-        email, 
-        modalStatus, 
-        updateContact,
-        deleteContact
-    }) => {
-
+const TableRow = ({ id, name, address, city, uf, phone, email, modalStatus, deleteContact }) => {
     const [modal, setModalState] = useState(false)
     const navigate = useNavigate()
+
     const deleteItem = () => {
         deleteContact(id)
-        setTimeout(() => setModalState(false), 2000);
+        setTimeout(() => {
+            setModalState(false)
+            navigate(0)
+        }, 1000);
     }
+
     const body = {
         id, 
         name, 
@@ -32,6 +24,7 @@ const TableRow = (
         phone, 
         email
     }
+
     return (
         <>
             <Modal 

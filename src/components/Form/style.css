@@ -7,6 +7,7 @@ a {
     border: 1px solid #ccc;
     border-radius: 1rem;
     padding: 2rem;
+    overflow: hidden;
 }
 
 .contacts-form-1 {
@@ -30,7 +31,7 @@ a {
     margin-left: 0;
     flex-grow: 3; 
 }
-.contacts-form-2 div:nth-of-type(2) { width: 20px; }
+.contacts-form-2 div:nth-of-type(2) { width: 30px; }
 .contacts-form-2 div:nth-of-type(3) { flex-grow: 3; }
 
 .contacts-form-input {
@@ -42,8 +43,8 @@ a {
 
 .btn-container {
     position: relative;
-    left: 70%;
-    width: 30%;
+    right: -80%;
+    width: 200px;
     display: flex;
     justify-content: space-between;
 }
@@ -62,4 +63,18 @@ a {
 
 .btn:hover {
     background-color: #645cbb4b;
+}
+
+@media screen and (max-width: 720px) {
+
+    .contacts-form-1 { flex-direction: column; }
+    .contacts-form-1 div { width: 100%; }
+    .contacts-form-2 div { margin: 0; width: 100%; }
+    .contacts-form-2 {
+        flex-direction: column;
+    }
+    .btn-container {
+        position: initial;
+        margin: 0 auto;
+    }
 }

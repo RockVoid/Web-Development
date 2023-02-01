@@ -3,6 +3,8 @@ table {
 }
 
 .contacts-table {
+    width: 80vw;
+    margin: 1rem auto;
     border: 1px solid #ccc;
     border-collapse: collapse;
 }
@@ -17,4 +19,10 @@ table {
 
 .table-contacts-row td {
     padding: 0.2rem 0.5rem;
+}
+
+.search-contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
