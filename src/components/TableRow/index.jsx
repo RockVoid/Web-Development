@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ButtonIcon from "../Button"
 import { Modal } from "../Modal";
 
@@ -18,6 +18,7 @@ const TableRow = (
     }) => {
 
     const [modal, setModalState] = useState(false)
+    const navigate = useNavigate()
     const deleteItem = () => {
         deleteContact(id)
         setTimeout(() => setModalState(false), 2000);
@@ -31,7 +32,6 @@ const TableRow = (
         phone, 
         email
     }
-
     return (
         <>
             <Modal 
@@ -44,9 +44,7 @@ const TableRow = (
                 <td className='row-icon'>
                     <span><ButtonIcon typeIcon='minus' onClick={() => setModalState(!modalStatus)} /></span>
                     <span>
-                        <Link to="/register">
-                            <ButtonIcon typeIcon='pencil' />
-                        </Link>
+                        <ButtonIcon typeIcon='pencil' onClick={() => navigate('/register', { state: { data: body, isEdit: true } })}/>
                     </span>
                 </td>
                 <td>{ name }</td>

@@ -38,8 +38,9 @@ export class ContactController {
         return response
     }
 
-    async updateContact({ name, address, city, uf, phone }) {
+    async updateContact({ id, name, address, city, uf, phone }) {
         const body = {
+            TECL_ID: id,
             TECL_NOME: name,
             TECL_ENDERECO: address,
             TECL_CIDADE: city,
