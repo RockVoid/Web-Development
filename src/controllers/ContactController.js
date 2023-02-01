@@ -35,7 +35,6 @@ export class ContactController {
 
     async deleteContact(id) {
         const response = await URL_SAIBWEB.delete('/cliente/' + id).then(res => res.data)
-        console.log(response)
         return response
     }
 

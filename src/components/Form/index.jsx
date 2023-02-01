@@ -14,6 +14,7 @@ export const Form = () => {
     }); 
 
     const contactController = new ContactController();
+
     const save = contactController.addContact;
     const update = contactController.updateContact;
 

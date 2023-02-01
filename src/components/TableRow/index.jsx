@@ -18,6 +18,10 @@ const TableRow = (
     }) => {
 
     const [modal, setModalState] = useState(false)
+    const deleteItem = () => {
+        deleteContact(id)
+        setTimeout(() => setModalState(false), 2000);
+    }
     const body = {
         id, 
         name, 
@@ -34,8 +38,7 @@ const TableRow = (
                 message="Tem certeza que deseja deletar este contato?" 
                 showModal={modal}
                 setModalState={(bool) => setModalState(bool)}
-                action={(id) => deleteContact(id)}
-                idToDel={id}
+                action={() => deleteItem()}
             />
             <tr className='table-contacts-row'>
                 <td className='row-icon'>
