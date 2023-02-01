@@ -10,7 +10,7 @@ export const Header = ({ text, route }) => {
                 <Link to={route}>
                     <ButtonIcon typeIcon="arrow-left" />
                 </Link>
-                {text}    
+                <h1>{text}</h1>    
             </div>
         </header>
     )
