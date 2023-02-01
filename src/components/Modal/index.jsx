@@ -1,14 +1,21 @@
 import './style.css'
 
 // Componentizar buttons
-export const Modal = ({ message, setShowModal, action }) => {
+export const Modal = ({ message, showModal, setModalState, action, idToDel }) => {
+    const deleteItem = () => {
+        action(idToDel);
+        setTimeout(() => setModalState(false), 2000);
+    }
+
     return (
-        <div className="modal-container">
-            <h2>{message}</h2>
-            <div>
-                <button onClick={() => action}>Sim</button>
-                <button onClick={() => setShowModal}>Não</button>
-            </div>
-        </div>
+        <>
+            {showModal && (<div className="modal-container">
+                <div><h2>{message}</h2></div>
+                <div>
+                    <button onClick={() => deleteItem()}>Sim</button>
+                    <button onClick={() => setModalState(false)}>Não</button>
+                </div>
+            </div>)}
+        </>
     )
 }
