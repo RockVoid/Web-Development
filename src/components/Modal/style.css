@@ -1,0 +1,11 @@
+.modal-container {
+    background-color: #fff;
+    border: 1px solid pink;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    width: 60vw;
+    height: 40vh;
+    border-radius: 1rem;
+}
